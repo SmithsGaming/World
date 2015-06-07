@@ -1,5 +1,6 @@
 package com.Orion.Armory.World.Common.WorldGen;
 
+import com.Orion.Armory.World.Common.Config.WorldGenConfigs;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -15,24 +16,26 @@ import java.util.Random;
 public class WorldGenCommonOre implements IWorldGenerator
 {
     WorldGenMinable iMinable;
+    int iMeta;
 
     int iMaxY;
     int iMinY;
     int iTriesPerChunk;
 
-    public WorldGenCommonOre(Block pBlockToGen, int pBlocksPerCluster)
+    public WorldGenCommonOre(Block pBlockToGen, int pMeta, int pBlocksPerCluster)
     {
-        this(pBlockToGen, pBlocksPerCluster,0, -1);
+        this(pBlockToGen, pMeta, pBlocksPerCluster,0, -1);
     }
 
-    public WorldGenCommonOre(Block pBlockToGen, int pBlocksPerCluster, int pMinY, int pMaxY)
+    public WorldGenCommonOre(Block pBlockToGen, int pMeta, int pBlocksPerCluster, int pMinY, int pMaxY)
     {
-        this(pBlockToGen, pBlocksPerCluster, pMinY, pMaxY, 4);
+        this(pBlockToGen, pMeta, pBlocksPerCluster, pMinY, pMaxY, 4);
     }
 
-    public WorldGenCommonOre(Block pBlockToGen, int pBlocksPerCluster, int pMinY, int pMaxY, int pTriesPerChunk)
+    public WorldGenCommonOre(Block pBlockToGen, int pMeta, int pBlocksPerCluster, int pMinY, int pMaxY, int pTriesPerChunk)
     {
-        iMinable = new WorldGenMinable(pBlockToGen, pBlocksPerCluster, Blocks.stone);
+        iMinable = new WorldGenMinable(pBlockToGen, pMeta, pBlocksPerCluster, Blocks.stone);
+        iMeta = pMeta;
         iMaxY = pMaxY;
         iMinY = pMinY;
         iTriesPerChunk = pTriesPerChunk;
@@ -41,6 +44,9 @@ public class WorldGenCommonOre implements IWorldGenerator
 
     @Override
     public void generate(Random pRandom, int pChunkX, int pChunkZ, World pWorld, IChunkProvider pChunkGen, IChunkProvider pChunkProv) {
+        if (!WorldGenConfigs.doWorldGens)
+            return;
+
         int tLocalMaxY = iMaxY;
         int tLocalMinY = iMinY;
 
@@ -56,8 +62,30 @@ public class WorldGenCommonOre implements IWorldGenerator
 
         for (int tSpawnAttempt = 0; tSpawnAttempt < iTriesPerChunk; tSpawnAttempt ++)
         {
+            Random tR = new Random();
+            float tChance = tR.nextFloat() * 4F;
 
+            switch (iMeta)
+            {
+                case 0:
+                    if (tChance > WorldGenConfigs.CommonOres.spawnChanceForCopper)
+                        return;
+                case 1:
+                    if (tChance > WorldGenConfigs.CommonOres.spawnChanceForTin)
+                        return;
+                case 2:
+                    if (tChance > WorldGenConfigs.CommonOres.spawnChanceForSilver)
+                        return;
+                case 3:
+                    if (tChance > WorldGenConfigs.CommonOres.spawnChanceForLead)
+                        return;
+            }
+
+            int tX = (pChunkX * 16) + tR.nextInt(16);
+            int tY = tLocalMinY + tR.nextInt(tLocalMaxY - tLocalMinY + 1);
+            int tZ = (pChunkZ * 16) + tR.nextInt(16);
+
+            iMinable.generate(pWorld, tR, tX ,tY, tZ);
         }
-
     }
 }

@@ -1,11 +1,13 @@
 package com.Orion.Armory.World.Common.Item;
 
 import com.Orion.Armory.Util.Client.CustomResource;
+import com.Orion.Armory.World.Util.Client.TranslationKeys;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,12 @@ import java.util.List;
 public class ItemCommonIngot extends Item {
 
     private ArrayList<CustomResource> iResources = new ArrayList<CustomResource>();
+
+    public ItemCommonIngot()
+    {
+        super();
+        setCreativeTab(CreativeTabs.tabMaterials);
+    }
 
     @Override
     public IIcon getIconFromDamage(int pMeta) {
@@ -33,6 +41,22 @@ public class ItemCommonIngot extends Item {
     @Override
     public boolean getHasSubtypes() {
         return true;
+    }
+
+    @Override
+    public String getItemStackDisplayName(ItemStack pStack) {
+         switch (pStack.getItemDamage())
+         {
+             case 0:
+                 return StatCollector.translateToLocal(TranslationKeys.Items.ItemCopperIngot);
+             case 1:
+                 return StatCollector.translateToLocal(TranslationKeys.Items.ItemTinIngot);
+             case 2:
+                 return StatCollector.translateToLocal(TranslationKeys.Items.ItemSilverIngot);
+             case 3:
+                 return StatCollector.translateToLocal(TranslationKeys.Items.ItemLeadIngot);
+         }
+        return this.getUnlocalizedName();
     }
 
     @Override

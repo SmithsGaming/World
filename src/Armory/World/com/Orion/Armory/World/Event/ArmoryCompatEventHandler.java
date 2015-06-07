@@ -3,8 +3,18 @@ package com.Orion.Armory.World.Event;
 import com.Orion.Armory.API.Events.Common.ActivateArmorAddonEvent;
 import com.Orion.Armory.API.Events.Common.ModifyMaterialEvent;
 import com.Orion.Armory.API.Events.Common.RegisterMaterialsEvent;
+import com.Orion.Armory.Common.Item.Armor.TierMedieval.ArmorMaterialMedieval;
+import com.Orion.Armory.Common.Registry.MedievalRegistry;
 import com.Orion.Armory.World.Common.Compatibility.ArmoryMedieval;
+import com.Orion.Armory.World.Common.GeneralRegistry;
+import com.Orion.Armory.World.Util.Client.Colors;
+import com.Orion.Armory.World.Util.Client.TranslationKeys;
+import com.Orion.Armory.World.Util.References;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+
+import java.util.HashMap;
 
 /**
  * Created by Orion
@@ -19,7 +29,10 @@ public class ArmoryCompatEventHandler
     @SubscribeEvent
     public void RegisterMaterialsHandler(RegisterMaterialsEvent pEvent)
     {
-
+        MedievalRegistry.getInstance().registerMaterial(new ArmorMaterialMedieval(References.InternalNames.Materials.Common.Copper, TranslationKeys.Materials.MaterialCopper, "Copper", EnumChatFormatting.RED, true, new HashMap<String, Float>(), new HashMap<String, Integer>(), new HashMap<String, Integer>(), new HashMap<String, Boolean>(), Colors.Metals.Copper, 1454, 0.195F, new ItemStack(GeneralRegistry.tCommonIngots, 1, 0)));
+        MedievalRegistry.getInstance().registerMaterial(new ArmorMaterialMedieval(References.InternalNames.Materials.Common.Tin, TranslationKeys.Materials.MaterialTin, "Tin", EnumChatFormatting.WHITE, false, new HashMap<String, Float>(), new HashMap<String, Integer>(), new HashMap<String, Integer>(), new HashMap<String, Boolean>(), Colors.Metals.Tin, 1259, 0.285F, new ItemStack(GeneralRegistry.tCommonIngots, 1, 1)));
+        MedievalRegistry.getInstance().registerMaterial(new ArmorMaterialMedieval(References.InternalNames.Materials.Common.Silver, TranslationKeys.Materials.MaterialSilver, "Silver", EnumChatFormatting.WHITE, false, new HashMap<String, Float>(), new HashMap<String, Integer>(), new HashMap<String, Integer>(), new HashMap<String, Boolean>(), Colors.Metals.Silver, 1850, 0.35F, new ItemStack(GeneralRegistry.tCommonIngots, 1, 2)));
+        MedievalRegistry.getInstance().registerMaterial(new ArmorMaterialMedieval(References.InternalNames.Materials.Common.Lead, TranslationKeys.Materials.MaterialLead, "Lead", EnumChatFormatting.DARK_BLUE, true, new HashMap<String, Float>(), new HashMap<String, Integer>(), new HashMap<String, Integer>(), new HashMap<String, Boolean>(), Colors.Metals.Lead, 2869, 0.175F, new ItemStack(GeneralRegistry.tCommonIngots, 1, 3)));
     }
 
     @SubscribeEvent

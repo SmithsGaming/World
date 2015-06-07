@@ -1,0 +1,14 @@
+Armory.World.ItemCopperIngot=Copper Ingot
+Armory.World.ItemTinIngot=Tin Ingot
+Armory.World.ItemSilverIngot=Silver Ingot
+Armory.World.ItemLeadIngot=Lead Ingot
+
+Armory.World.BlockCopperOre.name=Copper Ore
+Armory.World.BlockTinOre.name=Tin Ore
+Armory.World.BlockSilverOre.name=Silver Ore
+Armory.World.BlockLeadOre.name=Lead Ore
+
+Armory.World.MaterialCopper=Copper
+Armory.World.MaterialTin=Tin
+Armory.World.MaterialSilver=Silver
+Armory.World.MaterialLead=Lead

@@ -1,11 +1,9 @@
 package com.Orion.Armory.World.Client;
 
 import com.Orion.Armory.World.Client.Compatibility.ClientArmoryCompatEventHandler;
-import com.Orion.Armory.World.Client.Render.CommonMineableRenderHandler;
 import com.Orion.Armory.World.Common.CommonProxy;
 import com.Orion.Armory.World.Common.GeneralRegistry;
 import com.Orion.Armory.World.Util.Client.Textures;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.common.MinecraftForge;
 
 /**
@@ -22,7 +20,6 @@ public class ClientProxy extends CommonProxy
     public void registerRenderers()
     {
         super.registerRenderers();
-        RenderingRegistry.registerBlockHandler(new CommonMineableRenderHandler());
     }
 
     @Override
@@ -34,16 +31,10 @@ public class ClientProxy extends CommonProxy
         GeneralRegistry.tCommonIngots.addResource(Textures.Items.CommonIngot.Silver);
         GeneralRegistry.tCommonIngots.addResource(Textures.Items.CommonIngot.Lead);
 
-        GeneralRegistry.tCommonOres.registerResource(0, 0, 0, Textures.Blocks.CommonOre.Base);
-        GeneralRegistry.tCommonOres.registerResource(1, 0, 0, Textures.Blocks.CommonOre.Base);
-        GeneralRegistry.tCommonOres.registerResource(2, 0, 0, Textures.Blocks.CommonOre.Base);
-        GeneralRegistry.tCommonOres.registerResource(3, 0, 0, Textures.Blocks.CommonOre.Base);
-
-
-        GeneralRegistry.tCommonOres.registerResource(0, 0, 1, Textures.Blocks.CommonOre.Copper);
-        GeneralRegistry.tCommonOres.registerResource(1, 0, 1, Textures.Blocks.CommonOre.Tin);
-        GeneralRegistry.tCommonOres.registerResource(2, 0, 1, Textures.Blocks.CommonOre.Silver);
-        GeneralRegistry.tCommonOres.registerResource(3, 0, 1, Textures.Blocks.CommonOre.Lead);
+        GeneralRegistry.tCommonOres.registerResource(0, 0, 0, Textures.Blocks.CommonOre.Copper);
+        GeneralRegistry.tCommonOres.registerResource(1, 0, 0, Textures.Blocks.CommonOre.Tin);
+        GeneralRegistry.tCommonOres.registerResource(2, 0, 0, Textures.Blocks.CommonOre.Silver);
+        GeneralRegistry.tCommonOres.registerResource(3, 0, 0, Textures.Blocks.CommonOre.Lead);
     }
 
     @Override

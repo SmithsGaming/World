@@ -4,10 +4,12 @@ import com.Orion.Armory.Util.Client.CustomResource;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLogic;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import sun.dc.pr.PRError;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,12 +20,10 @@ import java.util.List;
 public class BlockCommonMineable extends Block {
 
     private HashMap<String, CustomResource> iResources = new HashMap<String, CustomResource>();
-    private int iRenderPasses = 1;
     
-    public BlockCommonMineable( int pRenderPasses) {
+    public BlockCommonMineable() {
         super(Material.rock);
         setCreativeTab(CreativeTabs.tabBlock);
-        iRenderPasses = pRenderPasses;
     }
 
     @Override
@@ -35,13 +35,26 @@ public class BlockCommonMineable extends Block {
     }
 
     @Override
+    public void registerBlockIcons(IIconRegister pRegistrar) {
+        for(CustomResource tResource : iResources.values())
+        {
+            tResource.addIcon(pRegistrar.registerIcon(tResource.getPrimaryLocation()));
+        }
+    }
+
+    @Override
     public int damageDropped (int metaData) {
         return metaData;
     }
 
-    public int getRenderPassAmount()
-    {
-        return iRenderPasses;
+    @Override
+    public String getLocalizedName() {
+        return super.getLocalizedName();
+    }
+
+    @Override
+    public IIcon getIcon(int pSide, int pMeta) {
+        return getResource(pMeta, 0, 0).getIcon();
     }
 
     public CustomResource getResource(int pMeta, int pSide, int pRenderPass)
