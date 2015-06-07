@@ -1,0 +1,17 @@
+[
+{
+  "modid": "Armory-World",
+  "name": "Armory-World",
+  "description": "Adding the Tinkers Construct Materials to Armory!",
+  "version": "@version@",
+  "mcversion": "@mcversion@",
+  "url": "",
+  "updateUrl": "",
+  "authorsList": ["OrionDevelopment"],
+  "credits": "All the people who helped me getting this project going",
+  "logoFile": "",
+  "screenshots": [],
+  "partent": "Armory",
+  "dependencies": ["Armory"]
+}
+]

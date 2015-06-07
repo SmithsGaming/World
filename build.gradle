@@ -75,8 +75,8 @@ if(System.getenv().TRAVIS_BRANCH.toString().contains("Development"))
 {
     version = version + "-SNAPSHOT"
 }
-group= "com.Orion.Armory.Weaponry"
-archivesBaseName = "Armory-Weaponry"
+group= "com.Orion.Armory.World"
+archivesBaseName = "Armory-World"
 
 //IDea fix for
 idea {
@@ -92,7 +92,7 @@ minecraft {
 
     //Replacing stuff inside the code:
     replace "@VERSION@", project.version
-    replaceIn "Weaponry.java"
+    replaceIn "World.java"
 }
 
 //Tells gradle which dependencies are needed for gradle and project
@@ -109,7 +109,7 @@ dependencies {
 sourceSets {
     main {
         java {
-            srcDir 'src/Armory/Weaponry'
+            srcDir 'src/Armory/World'
         }
         resources {
             srcDir 'resources'
@@ -184,17 +184,17 @@ uploadArchives {
             name project.archivesBaseName
             packaging 'jar'
             description 'Armory'
-            url 'https://github.com/SmithsModding/Weaponry'
+            url 'https://github.com/SmithsModding/World'
 
             scm {
-                url 'https://github.com/SmithsModding/Weaponry'
-                connection 'scm:git:git://github.com/SmithsModding/Weaponry.git'
-                developerConnection 'scm:git:git@github.com/SmithsModding/Weaponry.git'
+                url 'https://github.com/SmithsModding/World'
+                connection 'scm:git:git://github.com/SmithsModding/World.git'
+                developerConnection 'scm:git:git@github.com/SmithsModding/World.git'
             }
 
             issueManagement {
                 system 'github'
-                url 'https://github.com/SmithsModding/Weaponry/issues'
+                url 'https://github.com/SmithsModding/World/issues'
             }
 
             developers {
@@ -228,7 +228,7 @@ task('createGithubBranches') << {
         addTagProg.waitFor()
 
         logger.lifecycle("Uploading force push to repo.")
-        def setUrlCMD = "git config remote.origin.url https://" + System.getenv().GitUsername.toString() + ":" + System.getenv().GitPassword.toString() + "@github.com/SmithsModding/Weaponry"
+        def setUrlCMD = "git config remote.origin.url https://" + System.getenv().GitUsername.toString() + ":" + System.getenv().GitPassword.toString() + "@github.com/SmithsModding/World"
         def setURLProg = setUrlCMD.execute()
         setURLProg.waitFor()
 
