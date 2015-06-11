@@ -65,6 +65,7 @@ repositories {
 //Apply the gradle plugins.
 apply plugin: 'forge'
 apply plugin: 'maven'
+apply plugin: 'curseforge'
 
 //These configurations are needed for uploading to a MavenRepo:
 configurations {
