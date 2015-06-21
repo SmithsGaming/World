@@ -29,10 +29,10 @@ public class ArmoryCompatEventHandler
     @SubscribeEvent
     public void RegisterMaterialsHandler(RegisterMaterialsEvent pEvent)
     {
-        MaterialRegistry.getInstance().registerMaterial(new ArmorMaterial(References.InternalNames.Materials.Common.Copper, TranslationKeys.Materials.MaterialCopper, "Copper", EnumChatFormatting.RED, true, Colors.Metals.Copper, 1454, 0.195F, new ItemStack(GeneralRegistry.tCommonIngots, 1, 0)));
-        MaterialRegistry.getInstance().registerMaterial(new ArmorMaterial(References.InternalNames.Materials.Common.Tin, TranslationKeys.Materials.MaterialTin, "Tin", EnumChatFormatting.WHITE, false, Colors.Metals.Tin, 1259, 0.285F, new ItemStack(GeneralRegistry.tCommonIngots, 1, 1)));
-        MaterialRegistry.getInstance().registerMaterial(new ArmorMaterial(References.InternalNames.Materials.Common.Silver, TranslationKeys.Materials.MaterialSilver, "Silver", EnumChatFormatting.WHITE, false, Colors.Metals.Silver, 1850, 0.35F, new ItemStack(GeneralRegistry.tCommonIngots, 1, 2)));
-        MaterialRegistry.getInstance().registerMaterial(new ArmorMaterial(References.InternalNames.Materials.Common.Lead, TranslationKeys.Materials.MaterialLead, "Lead", EnumChatFormatting.DARK_BLUE, true, Colors.Metals.Lead, 2869, 0.175F, new ItemStack(GeneralRegistry.tCommonIngots, 1, 3)));
+        MaterialRegistry.getInstance().registerMaterial(new ArmorMaterial(References.InternalNames.Materials.Common.Copper, TranslationKeys.Materials.MaterialCopper, "Copper", EnumChatFormatting.RED, true, 1454, 0.195F, Colors.Metals.Copper, new ItemStack(GeneralRegistry.tCommonIngots, 1, 0)));
+        MaterialRegistry.getInstance().registerMaterial(new ArmorMaterial(References.InternalNames.Materials.Common.Tin, TranslationKeys.Materials.MaterialTin, "Tin", EnumChatFormatting.WHITE, false, 1259, 0.285F, Colors.Metals.Tin, new ItemStack(GeneralRegistry.tCommonIngots, 1, 1)));
+        MaterialRegistry.getInstance().registerMaterial(new ArmorMaterial(References.InternalNames.Materials.Common.Silver, TranslationKeys.Materials.MaterialSilver, "Silver", EnumChatFormatting.WHITE, false, 1850, 0.35F, Colors.Metals.Silver, new ItemStack(GeneralRegistry.tCommonIngots, 1, 2)));
+        MaterialRegistry.getInstance().registerMaterial(new ArmorMaterial(References.InternalNames.Materials.Common.Lead, TranslationKeys.Materials.MaterialLead, "Lead", EnumChatFormatting.DARK_BLUE, true, 2869, 0.175F, Colors.Metals.Lead, new ItemStack(GeneralRegistry.tCommonIngots, 1, 3)));
     }
 
     @SubscribeEvent
