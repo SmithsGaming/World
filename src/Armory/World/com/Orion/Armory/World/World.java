@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
  * Copyrighted according to Project specific license
  */
 @Mod(modid = References.General.MOD_ID, name = "Armory-World", version = References.General.VERSION,
-        dependencies = "required-after:Forge@[10.13,);required-after:Armory")
+        dependencies = "required-after:Forge@[10.13,);required-after:Armory@[1.1,)")
 public class World
 {
     // Instance of this mod use for internal and Forge references
