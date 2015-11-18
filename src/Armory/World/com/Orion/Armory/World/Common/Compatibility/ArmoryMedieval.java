@@ -1,8 +1,8 @@
 package com.Orion.Armory.World.Common.Compatibility;
 
-import com.Orion.Armory.API.Events.Common.ActivateArmorAddonEvent;
-import com.Orion.Armory.API.Events.Common.ModifyMaterialEvent;
-import com.Orion.Armory.API.Materials.IArmorMaterial;
+import com.SmithsModding.Armory.API.Events.Common.ActivateArmorAddonEvent;
+import com.SmithsModding.Armory.API.Events.Common.ModifyMaterialEvent;
+import com.SmithsModding.Armory.API.Materials.IArmorMaterial;
 import com.Orion.Armory.World.Util.References;
 
 /**

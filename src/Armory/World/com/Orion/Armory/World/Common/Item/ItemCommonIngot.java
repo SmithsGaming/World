@@ -1,6 +1,6 @@
 package com.Orion.Armory.World.Common.Item;
 
-import com.Orion.Armory.Util.Client.CustomResource;
+import com.SmithsModding.Armory.Util.Client.CustomResource;
 import com.Orion.Armory.World.Util.Client.TranslationKeys;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;

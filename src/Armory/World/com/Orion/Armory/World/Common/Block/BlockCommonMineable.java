@@ -1,6 +1,6 @@
 package com.Orion.Armory.World.Common.Block;
 
-import com.Orion.Armory.Util.Client.CustomResource;
+import com.SmithsModding.Armory.Util.Client.CustomResource;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialLogic;
@@ -9,7 +9,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import sun.dc.pr.PRError;
 
 import java.util.HashMap;
 import java.util.List;

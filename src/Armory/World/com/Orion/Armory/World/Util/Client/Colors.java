@@ -1,7 +1,7 @@
 package com.Orion.Armory.World.Util.Client;
 
 
-import com.Orion.Armory.Util.Client.Color.Color;
+import com.SmithsModding.Armory.Util.Client.Color.Color;
 
 /**
  * Created by Orion
